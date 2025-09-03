@@ -38,12 +38,14 @@ class Pepe
         /*Un parametro, es como la declaracion de una variable Y un argumento el valor que se le da
         Entonces string contenido <-- PARAMETRO || = "" sería el <-- ARGUMENTO*/
         int LetraConteo = p.TextoAnalizar('r');
-        if(LetraConteo >= 1){
-        Console.WriteLine($"La letra r se repite {LetraConteo} veces");
+        if (LetraConteo >= 1)
+        {
+            Console.WriteLine($"La letra r se repite {LetraConteo} veces");
         }
         else
         {
             Console.WriteLine("El texto no contiene la letra r");
+            Console.WriteLine("Fin");
         }
     }
 } //dotnet build
