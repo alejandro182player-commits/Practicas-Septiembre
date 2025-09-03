@@ -45,7 +45,6 @@ class Pepe
         else
         {
             Console.WriteLine("El texto no contiene la letra r");
-            Console.WriteLine("Fin");
         }
     }
 } //dotnet build
