@@ -16,3 +16,4 @@
 /home/alexerar/Proyectos/MiProyecto/obj/Debug/net8.0/MiProyecto.pdb
 /home/alexerar/Proyectos/MiProyecto/obj/Debug/net8.0/MiProyecto.genruntimeconfig.cache
 /home/alexerar/Proyectos/MiProyecto/obj/Debug/net8.0/ref/MiProyecto.dll
+/home/alexerar/Proyectos/MiProyecto/obj/Debug/net8.0/MiProyecto.sourcelink.json
