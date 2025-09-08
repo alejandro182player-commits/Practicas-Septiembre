@@ -9,7 +9,7 @@ public class Contacto
         Numero = numero;
     }
 
-    public void MostrarContacto()
+    public void Mostrar()
     {
         Console.WriteLine($"Nombre: {Nombre}, Numero: {Numero}");
     }
@@ -27,20 +27,55 @@ public class Agenda
         contactos.Add(new(nombre1, numero1));
         Console.WriteLine("Guardado.");
     }
+
+    public void MostrarLista()
+    {
+        Console.WriteLine("Contactos Guardados");
+        if (contactos.Count == 0)
+        {
+            Console.WriteLine("No hay contactos guardados");
+            return;
+        }
+        Console.WriteLine("Tus contactos");
+        foreach (var Lista in contactos)
+        {
+            //Tu quieres meter un valor de aquí en un lugar ¿que es perfecto para eso? Mostrar() solo tiene un Console.WriteLine que tiene solo
+            //un valor por ciclo?
+            Lista.Mostrar();
+        }
+    }
 }
-class program
+class Program
 {
     static void Main(string[] args)
     {
-
-        Contacto cont = new Contacto("pedro", "856542212");
         Agenda agen = new Agenda();
-        Console.WriteLine("¡¡AGENDA DE CONTACTOS!!");
-        Console.WriteLine("1. Agregar contacto.");
-        Console.WriteLine("2. Mostrar los contactos.");
-        Console.WriteLine("3. Salir");
-        Console.WriteLine("Elige una opcion");
+        bool volverMenu = false;
 
-        string opcion = Console.ReadLine();
+        while (volverMenu)
+            Console.WriteLine("¡¡AGENDA DE CONTACTOS!!");
+            Console.WriteLine("1. Agregar contacto.");//le falta
+            Console.WriteLine("2. Mostrar los contactos.");//Le falta mas jaja
+            Console.WriteLine("3. Salir");//Completado
+            Console.WriteLine("Elige una opcion");
+
+            string opcion = Console.ReadLine();
+
+            switch (opcion)
+            {
+                case "1":
+                    agen.Agregar();
+                    break;
+                case "2":
+                    agen.MostrarLista();
+                    break;
+                case "3":
+                    Console.WriteLine("Adios...");
+                    volverMenu = true;
+                    break;
+                default:
+                    Console.WriteLine("ERROR DE OPCION");
+                    break;
+            }
     }
 }
