@@ -50,9 +50,10 @@ class Program
     static void Main(string[] args)
     {
         Agenda agen = new Agenda();
-        bool volverMenu = false;
+        bool volverMenu = true;
 
         while (volverMenu)
+        {
             Console.WriteLine("¡¡AGENDA DE CONTACTOS!!");
             Console.WriteLine("1. Agregar contacto.");//le falta
             Console.WriteLine("2. Mostrar los contactos.");//Le falta mas jaja
@@ -71,11 +72,12 @@ class Program
                     break;
                 case "3":
                     Console.WriteLine("Adios...");
-                    volverMenu = true;
+                    volverMenu = false;
                     break;
                 default:
                     Console.WriteLine("ERROR DE OPCION");
                     break;
             }
+        }
     }
 }
