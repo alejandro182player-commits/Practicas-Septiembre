@@ -51,11 +51,9 @@ public class Calificaciones
             Lista.AlumCalif();
         }
     }
-    public void AprobYReprob()
-    {
-        
-    }
 }
+
+
 class Program
 {
     static void Main(string[] argm)
