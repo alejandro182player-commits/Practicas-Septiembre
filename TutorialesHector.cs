@@ -1,57 +1,68 @@
 public class Alumnos
 {
-    public string Nombre { get; set; }
-    public float Calificacion1 { get; set; }
-    public float Calificacion2 { get; set; }
-    public float Calificacion3 { get; set; }
-
-    public Alumnos(string nombre, float calificacion1, float calificacion2, float calificacion3)
+    private string nombre;
+    public string Nombre
     {
-        Nombre = nombre;
-        Calificacion1 = calificacion1;
-        Calificacion2 = calificacion2;
-        Calificacion3 = calificacion3;
+        get { return nombre; } /*Cuando llamemos la variable "Nombre", mostrara para lectura, el
+        contenido de "nombre". "Nombre" crea una copia inmediata de lo que hay en "nombre" y 
+        esta es la que se modifica y lee, get y set son propiedades, como puertas para el 
+        acceso a la lectura y sobre escritura de la variable original, algo así como un 
+        clon desechable, pero que pueden poner trabas y en general maneras dd*/
+
+        set
+        {
+            if (value == null)
+            {
+                Console.WriteLine("El nombre no puede estar vació.");
+            }
+            else
+            {
+                nombre = value.Trim();
+            }
+        }
     }
+    private List<double> calificaciones = new List<double>();
 
-    public void AlumCalif()
+    public List<double> Calificaciones
     {
-        Console.WriteLine($"Nombre: {Nombre}, Español: {Calificacion1}, Matematicas: {Calificacion2}, Ingles: {Calificacion3}");
-        float CaliFinal = (Calificacion1 + Calificacion2 + Calificacion3) / 3;
-        Console.WriteLine("Calificacion Final: " + CaliFinal);
+        get { return calificaciones; }
+    }
+    //Promedio mas que ser un valor pedido antes de la ejecucion, es un valor creado DURANTE
+    //la ejecucion, no necesita que haya datos guardados de antes
+    public double Promedio
+    {
+        get
+        {
+            if (calificaciones.Count == 0) return 0; //Si la lista de calificaciones es 0, o sea nula, lo unico que imprimira es 0
+            
+        }
     }
 }
 public class Calificaciones
-{
-    public List<Alumnos> alumnos = new List<Alumnos>();
-
-    public void Registrar()
     {
-        Console.WriteLine("Nombre del alumno:");
-        string Nombre1 = Console.ReadLine();
-        Console.WriteLine("Calificacion de Español:");
-        float Calificacion_1 = float.Parse(Console.ReadLine());
-        Console.WriteLine("Calificacion de Matematicas:");
-        float Calificacion_2 = float.Parse(Console.ReadLine());
-        Console.WriteLine("Calificacion de Ingles:");
-        float Calificacion_3 = float.Parse(Console.ReadLine());
-        alumnos.Add(new(Nombre1, Calificacion_1, Calificacion_2, Calificacion_3));
-        Console.WriteLine("Guardado.");
-    }
+        public List<Alumnos> alumnos = new List<Alumnos>();
 
-    public void MostrarAlumnos()
-    {
-        Console.WriteLine("Alumnos registrados");
-        if (alumnos.Count == 0)
+        public void Registrar()
         {
-            Console.WriteLine("No hay alumnos regsitrados");
-            return;
+            Console.WriteLine("Nombre del alumno:");
+            string Nombre1 = Console.ReadLine();
+            Console.WriteLine("Guardado.");
         }
-        foreach (var Lista in alumnos)
+
+        public void MostrarAlumnos()
         {
-            Lista.AlumCalif();
+            Console.WriteLine("Alumnos registrados");
+            if (alumnos.Count == 0)
+            {
+                Console.WriteLine("No hay alumnos regsitrados");
+                return;
+            }
+            foreach (var Lista in alumnos)
+            {
+                Lista.AlumCalif();
+            }
         }
     }
-}
 
 
 class Program
